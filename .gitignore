@@ -1,0 +1,6 @@
+# Ignorar el entorno virtual
+lp_sdk_env/
+
+# Archivos generados automáticamente
+*.pyc
+__pycache__/
