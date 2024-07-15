@@ -1,5 +1,7 @@
 # Ignorar el entorno virtual
 lp_sdk_env/
+sdk_env/
+Livepanel_SDK.egg-info/
 
 # Archivos generados automáticamente
 *.pyc
