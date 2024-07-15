@@ -2,6 +2,7 @@
 lp_sdk_env/
 sdk_env/
 Livepanel_SDK.egg-info/
+.env
 
 # Archivos generados automáticamente
 *.pyc
