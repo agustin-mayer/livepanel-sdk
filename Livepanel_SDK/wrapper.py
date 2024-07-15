@@ -3,6 +3,12 @@ import requests
 class APIAccess:
     def __init__(self, auth):
         self.auth = auth
+        
+    def get_projects(self):
+        url = f'https://tools.api.stg.livepanel.ai/v2/projects'
+        headers = self.auth.get_headers()
+        response = requests.get(url, headers=headers, verify=False)
+        return response.json()
 
     def create_project(self, payload): 
         url = 'https://tools.api.stg.livepanel.ai/v2/projects'
