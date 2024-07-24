@@ -30,21 +30,21 @@ def test_create_project():
 def test_get_project():
     api_access = get_api_access()
 
-    project_id = 'id_del_proyecto'
+    project_id = '194'
     response = api_access.get_project(project_id)
     print('Get Project Response:', response)
 
 def test_download_dataset():
     api_access = get_api_access()
 
-    project_id = 'id_del_proyecto'
-    file_type = 'csv'
+    project_id = '194'
+    file_type = 'Train'
     response = api_access.download_dataset(project_id, file_type)
     print('Download Dataset Response:', response)
 
 
 if __name__ == '__main__':
-    test_get_projects()
+    #test_get_projects()
     # test_create_project()
-    # test_get_project()
+    test_get_project()
     # test_download_dataset()
