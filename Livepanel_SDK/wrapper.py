@@ -36,4 +36,4 @@ class APIAccess:
         url = f'https://tools.api.stg.livepanel.ai/api/v2/projects/{project_id}/datasets/get_file?type={file_type}'
         headers = self.auth.get_headers()
         response = requests.get(url, headers=headers)
-        return response.json()
+        return response.content
