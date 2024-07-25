@@ -4,6 +4,5 @@ class LivepanelAuth:
 
     def get_headers(self):
         return {
-            'Authorization': f'Bearer {self.api_key}',
-            'Content-Type': 'application/json'
+            'Authorization': f'Bearer {self.api_key}'
         }
