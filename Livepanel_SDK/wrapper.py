@@ -10,15 +10,19 @@ class APIAccess:
         response = requests.get(url, headers=headers)
         return response.json()
 
-    def create_project(self, datafile): 
+
+    def create_project(self, datafile, project_name=None):
         url = 'https://tools.api.stg.livepanel.ai/api/v2/projects'
         headers = self.auth.get_headers()
 
-        with open(datafile, 'rb') as file:
-            files = {'datafile': file}
-            response = requests.post(url, headers=headers, files=files)
-        
+        files = {'datafile': open(datafile, 'rb')}
+        data = {}
+        if project_name:
+            data['name'] = project_name
+
+        response = requests.post(url, headers=headers, files=files, data=data)
         return response.json()
+
 
     def get_project(self, project_id):
         url = f'https://tools.api.stg.livepanel.ai/api/v2/projects/{project_id}'
