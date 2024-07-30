@@ -5,11 +5,10 @@ class APIAccess:
         self.auth = auth
         
     def get_projects(self):
-        url = f'https://tools.api.stg.livepanel.ai/api/v2/projects'
+        url = 'https://tools.api.stg.livepanel.ai/api/v2/projects'
         headers = self.auth.get_headers()
         response = requests.get(url, headers=headers)
         return response.json()
-
 
     def create_project(self, datafile, project_name=None):
         url = 'https://tools.api.stg.livepanel.ai/api/v2/projects'
@@ -22,7 +21,6 @@ class APIAccess:
 
         response = requests.post(url, headers=headers, files=files, data=data)
         return response.json()
-
 
     def get_project(self, project_id):
         url = f'https://tools.api.stg.livepanel.ai/api/v2/projects/{project_id}'
@@ -41,3 +39,9 @@ class APIAccess:
         headers = self.auth.get_headers()
         response = requests.get(url, headers=headers)
         return response.content
+
+    def delete_project(self, project_id):
+        url = f'https://tools.api.stg.livepanel.ai/api/v2/projects/{project_id}'
+        headers = self.auth.get_headers()
+        response = requests.delete(url, headers=headers)
+        return response.status_code, response.json() if response.status_code != 204 else 'Project deleted successfully'
