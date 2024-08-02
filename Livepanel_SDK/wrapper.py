@@ -44,4 +44,4 @@ class APIAccess:
         url = f'https://tools.api.stg.livepanel.ai/api/v2/projects/{project_id}'
         headers = self.auth.get_headers()
         response = requests.delete(url, headers=headers)
-        return response.status_code, response.json() if response.status_code != 204 else 'Project deleted successfully'
+        return response.json()
